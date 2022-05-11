@@ -18,6 +18,9 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
+import Page from "./Page";
+import HeaderGroup from "./HeaderGroup";
+import Films from "./Films";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -27,7 +30,7 @@ const client = new ApolloClient({
 export const App = () => (
   <ApolloProvider client={client}>
   <ChakraProvider theme={theme}>
-  hello
+  <Page> <HeaderGroup/> <Films /> </Page>
   </ChakraProvider>
   </ApolloProvider>
 )
