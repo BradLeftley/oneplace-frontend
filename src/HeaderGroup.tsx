@@ -28,10 +28,6 @@ query Crypto {
   }
 `;
 
-
-
-
-
 interface StatsCardProps {
   title: string;
   stat: ReactElement;
