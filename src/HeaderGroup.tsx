@@ -43,9 +43,9 @@ function StatsCard(props: StatsCardProps) {
     <Stat
       px={{ base: 2, md: 4 }}
       py={'2'}
-      backgroundColor={'white'}
+      backgroundColor={useColorModeValue('white', 'gray.600')}
       shadow={'xl'}
-      borderColor={useColorModeValue('gray.800', 'gray.500')}
+      borderColor={useColorModeValue('gray.200', 'gray.500')}
       rounded={'lg'}>
       <Flex justifyContent={'space-between'}>
         <Box pl={{ base: 2, md: 4 }}>
