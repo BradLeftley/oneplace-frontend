@@ -23,6 +23,7 @@ query Crypto {
     name
     price
     priceDifference
+    priceDifferenceHour
     imageUrl
   } 
   }
@@ -64,10 +65,11 @@ function StatsCard(props: StatsCardProps) {
   );
 }
 
-function PriceDifferenceCard({ price, priceDifference }: { price: string, priceDifference: string }) {
+function PriceDifferenceCard({ price, priceDifference, priceDifferenceHour }: { price: string, priceDifference: string, priceDifferenceHour: string }) {
   const pp = Number(priceDifference).toFixed(2)
   const colour = Number(pp) > 0 ? 'green' : 'red'
-
+  const ppHour = Number(priceDifferenceHour).toFixed(2)
+  const colourHour = Number(ppHour) > 0 ? 'green' : 'red'
   return <>
     <StatNumber fontSize={'2xl'} fontWeight={'medium'} display="inline-block" paddingRight={'.5rem'}>
       £{price}
@@ -75,6 +77,9 @@ function PriceDifferenceCard({ price, priceDifference }: { price: string, priceD
 
     <StatNumber fontSize={'2xl'} fontWeight={'medium'} display="inline-block" color={colour}>
       {pp}
+    </StatNumber>
+    <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
+      Hour: <span color={colourHour}>{ppHour}</span> 
     </StatNumber>
   </>
 }
@@ -94,7 +99,7 @@ export default function HeaderGroup() {
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 5, lg: 8 }}>
         <StatsCard
           title={'Green Satoshi Token'}
-          stat={<PriceDifferenceCard price={data.greensatoshi.price} priceDifference={data.greensatoshi.priceDifference} />}
+          stat={<PriceDifferenceCard price={data.greensatoshi.price} priceDifference={data.greensatoshi.priceDifference} priceDifferenceHour={data.greensatoshi.priceDifferenceHour} />}
           icon={<Image src={data.greensatoshi.imageUrl} />}
         />
         {/* <StatsCard
