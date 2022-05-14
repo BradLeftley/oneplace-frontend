@@ -37,6 +37,7 @@ import {
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 interface LinkItemProps {
   name: string;
@@ -186,6 +187,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
           aria-label="open menu"
           icon={<FiBell />}
         />
+        <ColorModeSwitcher />
         {/* <Flex alignItems={'center'}>
           <Menu>
             <MenuButton

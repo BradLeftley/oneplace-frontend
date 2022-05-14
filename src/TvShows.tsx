@@ -8,11 +8,11 @@ import { gql, useQuery } from '@apollo/client';
 import { Card } from './Card';
 
 const GET_MOVIES = gql`
-query Movies {
-    plexmovie {
-      title
-      image
-    }
+query TvShows {
+  plextvshows {
+    image
+    title
+  }
   }
 `;
 
@@ -34,7 +34,7 @@ const responsive = {
     }
   };
 
-export const Films = () => {
+export const TvShows = () => {
 
     const { loading, error, data } = useQuery(GET_MOVIES);
     if (loading) return <>Loading</>
@@ -42,7 +42,7 @@ export const Films = () => {
     console.log(data)
     return (
       <>
-      <Text fontSize='3xl'>Recently Released Dolby Vision</Text>
+      <Text fontSize='3xl'>Recently Released Dolby Vision TV Shows</Text>
         <Carousel
           ssr
           partialVisbile
@@ -52,7 +52,7 @@ export const Films = () => {
           autoPlay={false}
           arrows={false}
         >
-          {data.plexmovie.map((movie: { image: string | undefined; title: string }) => {
+          {data.plextvshows.map((movie: { image: string | undefined; title: string }) => {
             return (
                 <Card imageUrl={movie.image} name={movie.title}  />
             );
@@ -64,4 +64,4 @@ export const Films = () => {
 }
 
 
-export default Films
+export default TvShows

@@ -23,7 +23,7 @@ import {
     return (
       <Stat
         px={{ base: 2, md: 4 }}
-        py={'5'}
+        py={'2'}
         backgroundColor={'white'}
         shadow={'xl'}
         borderColor={useColorModeValue('gray.800', 'gray.500')}

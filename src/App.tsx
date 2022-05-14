@@ -21,6 +21,7 @@ import {
 import Page from "./Page";
 import HeaderGroup from "./HeaderGroup";
 import Films from "./Films";
+import TvShows from "./TvShows";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -30,7 +31,7 @@ const client = new ApolloClient({
 export const App = () => (
   <ApolloProvider client={client}>
   <ChakraProvider theme={theme}>
-  <Page> <HeaderGroup/> <Films /> </Page>
+  <Page> <HeaderGroup/> <Films /> <TvShows /> </Page>
   </ChakraProvider>
   </ApolloProvider>
 )
