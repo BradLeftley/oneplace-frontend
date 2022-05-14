@@ -38,17 +38,19 @@ import {
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Link as ReactRouterLink } from 'react-router-dom'
 
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  link: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Dashboard', icon: FiGrid },
-  { name: 'Crypto', icon: FiTrendingUp },
-  { name: 'News', icon: FiGlobe },
-  { name: 'Media', icon: FiTv },
-  { name: 'Home', icon: FiSettings },
+  { name: 'Dashboard', icon: FiGrid, link: '/' },
+  { name: 'Crypto', icon: FiTrendingUp, link: '/crypto' },
+  { name: 'News', icon: FiGlobe, link: '/' },
+  { name: 'Media', icon: FiTv, link: '/' },
+  { name: 'Home', icon: FiSettings, link: '/' },
 ];
 
 export default function Page({
@@ -106,7 +108,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} link={link.link}>
           {link.name}
         </NavItem>
       ))}
@@ -117,10 +119,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   icon: IconType;
   children: ReactText;
+  link: string;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, link, children, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link href={link} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
         p="4"
