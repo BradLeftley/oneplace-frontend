@@ -25,7 +25,7 @@ export function Card({ name, imageUrl} : CardProps) {
   return (
     <Box maxW='sm' borderRadius='lg' padding={3} overflow='hidden'>
       <Image src={imageUrl} alt={property.imageAlt} draggable={false} />
-      <Text fontSize='md'>{name}</Text>
+      <Text fontSize='md' paddingTop={'.5rem'}>{name}</Text>
     </Box>
   )
 }

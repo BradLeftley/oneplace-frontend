@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Image } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
-
+import LoadingCard from './LoadingCard';
 import { gql, useQuery } from '@apollo/client';
 import { Card } from './Card';
 
@@ -37,7 +37,8 @@ const responsive = {
 export const WatchListFilms = () => {
 
     const { loading, error, data } = useQuery(GET_MOVIES);
-    if (loading) return <>Loading</>
+    const x = Array({}, {}, {}, {}, {}, {}, {}, {}, {})
+
     if (error) return <>Error! {error.message}`</>;
     console.log(data)
     return (
@@ -52,7 +53,9 @@ export const WatchListFilms = () => {
           autoPlay={false}
           arrows={false}
         >
-          {data.plexmoviewatchlist.map((movie: { image: string | undefined; title: string }) => {
+          {loading && x.map(_l => <LoadingCard />)}
+          
+          {data && data.plexmoviewatchlist.map((movie: { image: string | undefined; title: string }) => {
             return (
                 <Card imageUrl={movie.image} name={movie.title}  />
             );

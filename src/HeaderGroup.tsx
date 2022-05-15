@@ -79,7 +79,7 @@ function PriceDifferenceCard({ price, priceDifference, priceDifferenceHour }: { 
       {pp}
     </StatNumber>
     <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
-      Hour: <span color={colourHour}>{ppHour}</span> 
+      Hour: <span style={{color: colourHour}}>{ppHour}</span> 
     </StatNumber>
   </>
 }

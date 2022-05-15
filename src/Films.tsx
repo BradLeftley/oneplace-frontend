@@ -2,11 +2,10 @@ import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Image } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
-
+import { Text, Box, Skeleton, SkeletonText } from '@chakra-ui/react';
 import { gql, useQuery } from '@apollo/client';
 import { Card } from './Card';
-
+import LoadingCard from './LoadingCard';
 const GET_MOVIES = gql`
 query Movies {
     plexmovie {
@@ -35,11 +34,12 @@ const responsive = {
   };
 
 export const Films = () => {
-
+   
     const { loading, error, data } = useQuery(GET_MOVIES);
-    if (loading) return <>Loading</>
+
     if (error) return <>Error! {error.message}`</>;
-    console.log(data)
+    const x = Array({}, {}, {}, {}, {}, {}, {}, {}, {})
+
     return (
       <>
       <Text fontSize='3xl'>Recently Released Dolby Vision</Text>
@@ -52,7 +52,11 @@ export const Films = () => {
           autoPlay={false}
           arrows={false}
         >
-          {data.plexmovie.map((movie: { image: string | undefined; title: string }) => {
+          {loading && x.map(_l => <LoadingCard />)}
+          
+
+      
+          {data && data.plexmovie.map((movie: { image: string | undefined; title: string }) => {
             return (
                 <Card imageUrl={movie.image} name={movie.title}  />
             );
