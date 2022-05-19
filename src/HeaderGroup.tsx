@@ -88,7 +88,7 @@ export default function HeaderGroup() {
 
 
   const { loading, error, data } = useQuery(GET_GREEN_TOKEN);
-  if (loading) return <>Loading</>
+  // if (loading) return <>Loading</>
   if (error) return <>Error! {error.message}`</>;
   console.log(data)
 
@@ -97,11 +97,28 @@ export default function HeaderGroup() {
   return (
     <Box  mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }} marginBottom={'1rem'}>
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 5, lg: 8 }}>
+       
+       {true && <>
+       
         <StatsCard
           title={'Green Satoshi Token'}
           stat={<PriceDifferenceCard price={data.greensatoshi.price} priceDifference={data.greensatoshi.priceDifference} priceDifferenceHour={data.greensatoshi.priceDifferenceHour} />}
           icon={<Image src={data.greensatoshi.imageUrl} />}
         />
+       </>}
+       
+        {/* <StatsCard
+          title={'Green Satoshi Token'}
+          stat={<PriceDifferenceCard price={data.greensatoshi.price} priceDifference={data.greensatoshi.priceDifference} priceDifferenceHour={data.greensatoshi.priceDifferenceHour} />}
+          icon={<Image src={data.greensatoshi.imageUrl} />}
+        />
+              <StatsCard
+            title={'Servers'}
+            stat={<>11</>}
+            icon={<Image src={CelImage} />}
+          />       */}
+
+
         {/* <StatsCard
             title={'Servers'}
             stat={'1,000'}

@@ -1,62 +1,44 @@
-import * as React from "react"
 import {
   ChakraProvider,
-  Box,
-  Text,
-  VStack,
-  Code,
-  Grid,
   theme,
 } from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
 import {
   ApolloClient,
   InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql
+  ApolloProvider
 } from "@apollo/client";
 import Page from "./Page";
-import HeaderGroup from "./HeaderGroup";
-import Films from "./Films";
-import TvShows from "./TvShows";
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
-  Link
+  Routes
 } from "react-router-dom";
-
 import Dashboard from "./Dashboard";
-
+import Login from "./Login/Login"
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "http://localhost:4000/graphql"
+  uri: "http://localhost:3000/dev/graphql"
 });
+
 
 export const App = () => (
   <ApolloProvider client={client}>
-  <ChakraProvider theme={theme}>
- <Page>
-   <Router>
-
-
- <Routes>
-    <Route path="/" element={<Dashboard />} />
-          {/* <Route path="/users">
+    <ChakraProvider theme={theme}>
+      <Page>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/Login" element={<Login />} />
+            {/* <Route path="/users">
             <Users />
           </Route>
           <Route path="/">
             <Home />
           </Route> */}
           </Routes>
-  </Router>
- </Page>
-
-
-
- 
-  </ChakraProvider>
+        </Router>
+      </Page>
+    </ChakraProvider>
   </ApolloProvider>
 )
+

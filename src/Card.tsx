@@ -24,7 +24,7 @@ export function Card({ name, imageUrl} : CardProps) {
 
   return (
     <Box maxW='sm' borderRadius='lg' padding={3} overflow='hidden'>
-      <Image src={imageUrl} alt={property.imageAlt} draggable={false} />
+      <Image src={imageUrl} alt={property.imageAlt} draggable={false} _hover={{ transform: 'scale(1.5)', transition: '1s', zIndex: '10000' }} />
       <Text fontSize='md' paddingTop={'.5rem'}>{name}</Text>
     </Box>
   )

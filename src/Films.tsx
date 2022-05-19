@@ -18,8 +18,8 @@ query Movies {
 const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6,
-      paritialVisibilityGutter: 60
+      items: 5,
+      paritialVisibilityGutter: 30
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
