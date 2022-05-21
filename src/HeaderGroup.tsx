@@ -1,19 +1,14 @@
 import {
   Box,
-  chakra,
   Flex,
   Image,
   SimpleGrid,
   Stat,
   StatLabel,
   StatNumber,
-  Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { ReactElement, ReactNode } from 'react';
-import { BsPerson } from 'react-icons/bs';
-import { FiServer } from 'react-icons/fi';
-import { GoLocation } from 'react-icons/go';
 import { gql, useQuery } from '@apollo/client';
 
 
@@ -88,7 +83,7 @@ export default function HeaderGroup() {
 
 
   const { loading, error, data } = useQuery(GET_GREEN_TOKEN);
-  // if (loading) return <>Loading</>
+  if (loading) return <>Loading</>
   if (error) return <>Error! {error.message}`</>;
   console.log(data)
 

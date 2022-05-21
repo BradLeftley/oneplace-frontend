@@ -16,29 +16,19 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
 } from '@chakra-ui/react';
 import {
-  FiHome,
   FiTrendingUp,
-  FiCompass,
-  FiStar,
   FiSettings,
   FiMenu,
   FiBell,
   FiGrid,
   FiGlobe,
-  FiChevronDown,
   FiTv,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Link as ReactRouterLink } from 'react-router-dom'
 
 interface LinkItemProps {
   name: string;

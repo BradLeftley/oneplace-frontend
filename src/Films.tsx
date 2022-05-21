@@ -1,8 +1,7 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Image } from '@chakra-ui/react';
-import { Text, Box, Skeleton, SkeletonText } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { gql, useQuery } from '@apollo/client';
 import { Card } from './Card';
 import LoadingCard from './LoadingCard';

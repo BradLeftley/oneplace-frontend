@@ -36,7 +36,7 @@ const responsive = {
 export const TvShows = () => {
 
     const { loading, error, data } = useQuery(GET_MOVIES);
-    const x = Array({}, {}, {}, {}, {}, {}, {}, {}, {})
+    const x = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
 
     if (error) return <>Error! {error.message}`</>;
     console.log(data)

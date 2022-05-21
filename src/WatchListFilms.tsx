@@ -1,7 +1,6 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Image } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
 import LoadingCard from './LoadingCard';
 import { gql, useQuery } from '@apollo/client';
@@ -37,9 +36,9 @@ const responsive = {
 export const WatchListFilms = () => {
 
     const { loading, error, data } = useQuery(GET_MOVIES);
-    const x = Array({}, {}, {}, {}, {}, {}, {}, {}, {})
+    const x = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
 
-    if (error) return <>Error! {error.message}`</>;
+    if (error) return <>Error! {error.message}</>;
     console.log(data)
     return (
       <>
