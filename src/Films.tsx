@@ -37,7 +37,7 @@ export const Films = () => {
     const { loading, error, data } = useQuery(GET_MOVIES);
 
     if (error) return <>Error! {error.message}`</>;
-    const x = Array({}, {}, {}, {}, {}, {}, {}, {}, {})
+    const x = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
 
     return (
       <>

@@ -1,12 +1,10 @@
 import React, { ReactNode } from 'react';
 import {
   IconButton,
-  Avatar,
   Box,
   CloseButton,
   Flex,
   HStack,
-  VStack,
   Icon,
   useColorModeValue,
   Link,
