@@ -24,6 +24,43 @@ query Crypto {
   }
 `;
 
+const GET_XRP= gql`
+query Cryptodata {
+  cryptodata(query: "ripple") {
+    name
+    symbol
+    price
+    imageUrl
+    priceDifference
+    priceDifferenceHour
+  }
+}
+`;
+const GET_BITCOIN_CASH= gql`
+query Cryptodata {
+  cryptodata(query: "bitcoin-cash") {
+    name
+    symbol
+    price
+    imageUrl
+    priceDifference
+    priceDifferenceHour
+  }
+}
+`;
+const GET_BITCOIN= gql`
+query Cryptodata {
+  cryptodata(query: "bitcoin") {
+    name
+    symbol
+    price
+    imageUrl
+    priceDifference
+    priceDifferenceHour
+  }
+}
+`;
+
 interface StatsCardProps {
   title: string;
   stat: ReactElement;
@@ -83,10 +120,19 @@ export default function HeaderGroup() {
 
 
   const { loading, error, data } = useQuery(GET_GREEN_TOKEN);
-  if (loading) return <>Loading</>
-  if (error) return <>Error! {error.message}`</>;
-  console.log(data)
+  const { loading: xrpLoading, error: xrpError, data: xrpData } = useQuery(GET_XRP);
+  const { loading: bchLoading, error: bchError, data: bchData } = useQuery(GET_BITCOIN_CASH);
+  const { loading: btcLoading, error: btcError, data: btcData } = useQuery(GET_BITCOIN);
 
+  if (loading || xrpLoading || bchLoading || btcLoading) return <>Loading</>
+
+  if (error) return <>Error! {error.message}</>;
+  if (xrpError) return <>Error! {xrpError.message}</>;
+  if (bchError) return <>Error! {bchError.message}</>;
+  if (btcError) return <>Error! {btcError.message}</>;
+  console.log(data)
+console.log(xrpData)
+console.log(bchData)
 
 
   return (
@@ -99,6 +145,21 @@ export default function HeaderGroup() {
           title={'Green Satoshi Token'}
           stat={<PriceDifferenceCard price={data.greensatoshi.price} priceDifference={data.greensatoshi.priceDifference} priceDifferenceHour={data.greensatoshi.priceDifferenceHour} />}
           icon={<Image src={data.greensatoshi.imageUrl} />}
+        />
+          <StatsCard
+          title={'XRP'}
+          stat={<PriceDifferenceCard price={xrpData.cryptodata.price} priceDifference={xrpData.cryptodata.priceDifference} priceDifferenceHour={xrpData.cryptodata.priceDifferenceHour} />}
+          icon={<Image src={xrpData.cryptodata.imageUrl} />}
+        />
+        <StatsCard
+          title={'Bitcoin Cash'}
+          stat={<PriceDifferenceCard price={bchData.cryptodata.price} priceDifference={bchData.cryptodata.priceDifference} priceDifferenceHour={bchData.cryptodata.priceDifferenceHour} />}
+          icon={<Image src={bchData.cryptodata.imageUrl} />}
+        />
+                <StatsCard
+          title={'Bitcoin Cash'}
+          stat={<PriceDifferenceCard price={btcData.cryptodata.price} priceDifference={btcData.cryptodata.priceDifference} priceDifferenceHour={btcData.cryptodata.priceDifferenceHour} />}
+          icon={<Image src={btcData.cryptodata.imageUrl} />}
         />
        </>}
        

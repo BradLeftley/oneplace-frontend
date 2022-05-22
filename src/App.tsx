@@ -17,7 +17,7 @@ import Dashboard from "./Dashboard";
 import Login from "./Login/Login"
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "https://uhe9yze9hg.execute-api.eu-west-2.amazonaws.com/production/graphql"
+  uri: "http://localhost:3000/dev/graphql"
 });
 
 

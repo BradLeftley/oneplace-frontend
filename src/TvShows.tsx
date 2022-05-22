@@ -38,7 +38,7 @@ export const TvShows = () => {
     const { loading, error, data } = useQuery(GET_MOVIES);
     const x = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
 
-    if (error) return <>Error! {error.message}`</>;
+    if (error) return <>Error!</>;
     console.log(data)
     return (
       <>
